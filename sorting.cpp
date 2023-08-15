@@ -17,11 +17,11 @@ int cmp_familia( SPORTSMAN *A, SPORTSMAN *B ){
     return strcmp( A->Familia, B->Familia );
 }
 
-size_t select_best( SPORTSMAN **A, size_t nA ){
+size_t select_best( SPORTSMAN **A, size_t nA, CMPFUNC func ){
     size_t R = 0 ;
     size_t k = 0 ;
     for ( k = 1; k < nA; k++ ) {
-        if ( cmp_result( A[k], A[R] ) < 0 ) {
+        if ( func( A[k], A[R] ) < 0 ) {
             R = k ;
         }
     }
@@ -30,12 +30,12 @@ size_t select_best( SPORTSMAN **A, size_t nA ){
 
 
 /* Сортировка выбором */
-void sort_1( SPORTSMAN **A, size_t nA ){
+void sort_1( SPORTSMAN **A, size_t nA, CMPFUNC func ){
     
     size_t k ;
     
     for ( k = 0; k < nA-1; k++ ) {
-        size_t B = select_best( A+k, nA-k ) + k ;
+        size_t B = select_best( A+k, nA-k, func ) + k ;
         SPORTSMAN *S = A[k] ;
         A[k] = A[B] ;
         A[B] = S ;

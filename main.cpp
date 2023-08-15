@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
         return 1 ;
     }
     
-    sort_1( People, nPeople ) ;
+    sort_1( People, nPeople, cmp_result ) ;
     
     {
         size_t k = 0 ;
