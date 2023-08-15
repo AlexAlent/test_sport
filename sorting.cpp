@@ -1,12 +1,27 @@
 #include <stdio.h>
+#include <string.h>
 #include "sport.h"
 
+
+int cmp_result( SPORTSMAN *A, SPORTSMAN *B ){
+    if ( A->Result < B->Result ) {
+        return -1 ;
+    }
+    if ( A->Result > B->Result ) {
+        return 1 ;
+    }
+    return 0 ;
+}
+
+int cmp_familia( SPORTSMAN *A, SPORTSMAN *B ){
+    return strcmp( A->Familia, B->Familia );
+}
 
 size_t select_best( SPORTSMAN **A, size_t nA ){
     size_t R = 0 ;
     size_t k = 0 ;
     for ( k = 1; k < nA; k++ ) {
-        if ( A[k]->Result < A[R]->Result ) {
+        if ( cmp_result( A[k], A[R] ) < 0 ) {
             R = k ;
         }
     }
