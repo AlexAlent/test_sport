@@ -9,7 +9,7 @@ int main(int argc, char *argv[]){
     SPORTSMAN **People = 0 ;
     size_t nPeople = 0 ;
     
-    Result = input_from_kbd( &People, &nPeople ) ;
+    Result = input_from_file( "data.txt", &People, &nPeople ) ;
     if ( Result != 0 ) {
         return 1 ;
     }

@@ -31,5 +31,7 @@ int cmp_result( SPORTSMAN *A, SPORTSMAN *B ) ;
 
 int cmp_familia( SPORTSMAN *A, SPORTSMAN *B ) ;
 
+int input_from_file( const char *filename, SPORTSMAN ***pA, size_t *pnA ) ;
+
 
 #endif /* SPORT_H */
